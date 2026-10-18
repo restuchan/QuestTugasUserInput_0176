@@ -15,6 +15,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -25,6 +27,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -43,7 +46,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -309,8 +315,42 @@ fun KontenUtama(modifier: Modifier ){
                         )
                     }
                 }
+
+                if (showDatePicker) {
+                    DatePickerDialog(
+                        onDismissRequest = { showDatePicker = false },
+                        confirmButton = {
+                            TextButton(onClick = {
+                                val selectedMillis = datePickerState
+                                    .selectedDateMillis
+                                if (selectedMillis != null) {
+                                    val formatter =
+                                        SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                                    textTanggalLahir = formatter.format(Date(selectedMillis))
+                                }
+                                showDatePicker = false
+                            },) {
+                                Text(stringResource(R.string.ok), color = colorResource(id = R.color.titel_color))
+                            }
+                        },
+                        dismissButton = {
+                            TextButton(onClick = { showDatePicker = false }) {
+                                Text(stringResource(R.string.batal), color = colorResource(id = R.color.titel_color))
+                            }
+                        }
+                    ) {
+                        DatePicker(
+                            state = datePickerState,
+                            colors = androidx.compose.material3.DatePickerDefaults.colors(
+                                selectedDayContainerColor = colorResource(id = R.color.outline_color),
+                                todayDateBorderColor = colorResource(id = R.color.titel_color)
+                            )
+                        )
+                    }
+                }
             }
         }
     }
 }
+
 
