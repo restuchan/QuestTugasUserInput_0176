@@ -8,5 +8,6 @@
     <string name="Belakang">Nama Belakang</string>
     <string name="Email">Email</string>
     <string name="TglLahir">Tgl Lahir</string>
+    <string name="Pengalaman">Pengalaman</string>
 
 </resources>
