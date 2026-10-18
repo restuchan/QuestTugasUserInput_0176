@@ -12,6 +12,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -166,6 +168,38 @@ fun KontenUtama(modifier: Modifier ){
                             ),
                             onValueChange = {
                                 textEmail = it
+                            }
+                        )
+                    }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                top = 5.dp,
+                                start = 20.dp,
+                                end = 20.dp,
+                                bottom = 10.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ){
+                        OutlinedTextField(
+                            value = textTanggalLahir,
+                            onValueChange = { },
+                            readOnly = true,
+                            singleLine = true,
+                            label = { Text(stringResource(  R.string.TglLahir)) },
+                            shape = MaterialTheme.shapes.large,
+                            modifier = Modifier.weight(1f),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = colorResource(id = R.color.outline_color),
+                                focusedLabelColor = colorResource(id = R.color.outline_color),
+                            ),
+                            trailingIcon = {
+                                IconButton(onClick = { showDatePicker = true }) {
+                                    Icon(
+                                        imageVector = Icons.Default.DateRange,
+                                        contentDescription = null
+                                    )
+                                }
                             }
                         )
                     }
