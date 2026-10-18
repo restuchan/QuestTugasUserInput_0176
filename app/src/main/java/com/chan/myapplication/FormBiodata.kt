@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringArrayResource
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -25,4 +26,7 @@ fun KontenUtama(modifier: Modifier ){
     var TanggalLahir by remember { mutableStateOf (value = "") }
     var Pengalaman by remember { mutableStateOf (value = "") }
     var Skill by remember { mutableStateOf (setOf<String>())}
+
+    val listPengalaman = stringArrayResource(id = R.array.listPengalaman)
+    val listSkill = stringArrayResource(id = R.array.listSkill)
 }
