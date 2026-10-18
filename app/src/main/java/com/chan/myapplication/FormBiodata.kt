@@ -11,6 +11,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -28,6 +30,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -238,6 +241,40 @@ fun KontenUtama(modifier: Modifier ){
                                         }
                                     )
                                 }
+                            }
+                        }
+                    }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                top = 0.dp,
+                                start = 12.dp,
+                                end = 20.dp,
+                                bottom = 10.dp)
+                    ) {
+                        listSkill.forEach { skill ->
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Checkbox(
+                                    checked = textSkill.contains(skill),
+                                    colors = CheckboxDefaults.colors(
+                                        checkedColor = colorResource(id = R.color.outline_color),
+                                    ),
+                                    onCheckedChange = { isChecked ->
+                                        if (isChecked) {
+                                            textSkill = textSkill + skill
+                                        } else {
+                                            textSkill = textSkill - skill
+                                        }
+                                    }
+                                )
+                                Text(
+                                    text = skill,
+                                    modifier = Modifier.padding(start = 2.dp)
+                                )
                             }
                         }
                     }
