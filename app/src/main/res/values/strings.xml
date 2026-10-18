@@ -3,4 +3,7 @@
 
     <string name="Judul">FORM BIODATA</string>
     <string name="Caption">Silakan isi biodata di bawah ini</string>
+
+    <string name="Depan">Nama Depan</string>
+
 </resources>
