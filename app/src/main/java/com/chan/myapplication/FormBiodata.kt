@@ -1,6 +1,7 @@
 package com.chan.myapplication
 
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,4 +30,9 @@ fun KontenUtama(modifier: Modifier ){
 
     val listPengalaman = stringArrayResource(id = R.array.listPengalaman)
     val listSkill = stringArrayResource(id = R.array.listSkill)
+
+    var showDatePicker by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
+    var expandedDropdown by remember { mutableStateOf(false) }
+    var isSubmitted by remember { mutableStateOf(false) }
 }
