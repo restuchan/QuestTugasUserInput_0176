@@ -1,7 +1,9 @@
 package com.chan.myapplication
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -10,6 +12,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
@@ -101,6 +106,45 @@ fun KontenUtama(modifier: Modifier ){
                             .fillMaxWidth(1f),
                         textAlign = TextAlign.Center
                     )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                top = 30.dp,
+                                start = 20.dp,
+                                end = 20.dp,
+                                bottom = 5.dp),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    ){
+                        OutlinedTextField(
+                            value = textNamaDepan,
+                            singleLine = true,
+                            label = { Text(stringResource( R.string.Depan)) },
+                            shape = MaterialTheme.shapes.large,
+                            modifier = Modifier.weight(1f),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = colorResource(id = R.color.outline_color),
+                                focusedLabelColor = colorResource(id = R.color.outline_color),
+                            ),
+                            onValueChange = {
+                                textNamaDepan = it
+                            }
+                        )
+                        OutlinedTextField(
+                            value = textNamaBelakang,
+                            singleLine = true,
+                            label = { Text(stringResource(R.string.Belakang)) },
+                            shape = MaterialTheme.shapes.large,
+                            modifier = Modifier.weight(1f),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = colorResource(id = R.color.outline_color),
+                                focusedLabelColor = colorResource(id = R.color.outline_color),
+                            ),
+                            onValueChange = {
+                                textNamaBelakang = it
+                            }
+                        )
+                    }
                 }
             }
         }
