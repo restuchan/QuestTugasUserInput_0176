@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
@@ -31,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -278,9 +281,36 @@ fun KontenUtama(modifier: Modifier ){
                             }
                         }
                     }
+                    Button(
+                        modifier = Modifier
+                            .fillMaxWidth(1f)
+                            .padding(start = 20.dp, end = 20.dp, bottom = 10.dp),
+                        enabled = textNamaDepan.isNotEmpty() && textNamaBelakang.isNotEmpty() && textEmail.isNotEmpty() && textTanggalLahir.isNotEmpty() && textPengalaman.isNotEmpty() && textSkill.isNotEmpty(),
+                        onClick = {
+                            NamaDepan = textNamaDepan
+                            NamaBelakang = textNamaBelakang
+                            Email = textEmail
+                            TanggalLahir = textTanggalLahir
+                            Pengalaman = textPengalaman
+                            Skill = textSkill
+
+                            isSubmitted = true
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = colorResource(id = R.color.button_color),
+                            contentColor = Color.White
+                        )
+                    ) {
+                        Text(
+                            text = stringResource(R.string.Simpan),
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(vertical = 4.dp)
+                        )
                     }
                 }
             }
         }
     }
 }
+
