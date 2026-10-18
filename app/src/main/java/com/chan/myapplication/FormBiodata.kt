@@ -92,6 +92,15 @@ fun KontenUtama(modifier: Modifier ){
                             .fillMaxWidth(1f),
                         textAlign = TextAlign.Center
                     )
+                    Text(
+                        stringResource(R.string.Caption),
+                        fontSize = 15.sp,
+                        color = colorResource(id = R.color.black),
+                        modifier = Modifier
+                            .padding(top = 10.dp)
+                            .fillMaxWidth(1f),
+                        textAlign = TextAlign.Center
+                    )
                 }
             }
         }
