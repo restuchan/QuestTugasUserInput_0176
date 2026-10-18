@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,7 +22,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringArrayResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -76,7 +81,18 @@ fun KontenUtama(modifier: Modifier ){
                     ),
                     colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white)),
                     elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-                ){}
+                ){
+                    Text(
+                        stringResource(R.string.Judul),
+                        fontSize = 30.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = colorResource(id = R.color.titel_color),
+                        modifier = Modifier
+                            .padding(top = 25.dp)
+                            .fillMaxWidth(1f),
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
         }
     }
