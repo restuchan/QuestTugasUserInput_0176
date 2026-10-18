@@ -1,5 +1,7 @@
 package com.chan.myapplication
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
@@ -35,4 +37,8 @@ fun KontenUtama(modifier: Modifier ){
     val datePickerState = rememberDatePickerState()
     var expandedDropdown by remember { mutableStateOf(false) }
     var isSubmitted by remember { mutableStateOf(false) }
+
+    Box(
+        modifier = modifier.fillMaxSize()
+    ) {}
 }
