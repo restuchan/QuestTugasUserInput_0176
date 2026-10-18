@@ -145,6 +145,30 @@ fun KontenUtama(modifier: Modifier ){
                             }
                         )
                     }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                top = 5.dp,
+                                start = 20.dp,
+                                end = 20.dp,
+                                bottom = 5.dp),
+                    ){
+                        OutlinedTextField(
+                            value = textEmail,
+                            singleLine = true,
+                            label = { Text(stringResource(R.string.Email)) },
+                            shape = MaterialTheme.shapes.large,
+                            modifier = Modifier.weight(1f),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = colorResource(id = R.color.outline_color),
+                                focusedLabelColor = colorResource(id = R.color.outline_color),
+                            ),
+                            onValueChange = {
+                                textEmail = it
+                            }
+                        )
+                    }
                 }
             }
         }
