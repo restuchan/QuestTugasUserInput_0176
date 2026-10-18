@@ -6,5 +6,6 @@
 
     <string name="Depan">Nama Depan</string>
     <string name="Belakang">Nama Belakang</string>
+    <string name="Email">Email</string>
 
 </resources>
