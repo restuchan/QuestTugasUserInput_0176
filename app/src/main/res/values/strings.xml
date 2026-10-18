@@ -29,4 +29,10 @@
     <string name="batal">Batal</string>
     <string name="Simpan">Simpan</string>
 
+    <string name="DataTersimpan">Data Tersimpan</string>
+    <string name="Nama_Card">Nama :</string>
+    <string name="Email_Card">Email :</string>
+    <string name="TanggalLahir_Card">Tanggal Lahir :</string>
+    <string name="Pengalaman_Card">Pengalaman :</string>
+    <string name="Keahlian_Card">Keahlian :</string>
 </resources>
