@@ -24,4 +24,7 @@
         <item>UI/UX</item>
         <item>Web</item>
     </string-array>
+
+    <string name="ok">OK</string>
+
 </resources>
